@@ -21,11 +21,23 @@ public class SymptomsCounter {
 	private Map<String, Integer> orderedSymptoms;
 
 	public SymptomsCounter() {
+
+		/**
+		 * read data from symptoms.txt using ReadSymptomDataFromFile class creates a
+		 * symptomsList
+		 */
+
 		readSDFF = new ReadSymptomDataFromFile("symptoms.txt");
 		symptomsList = readSDFF.getSymptoms();
 	}
 
 	public void symptomsHandler() {
+
+		/**
+		 * using a HashMap to count the occurrences in the symptomsList using a TreeMap
+		 * to sort them alphabetically return an orderedSymptoms
+		 */
+
 		for (String symptom : symptomsList) {
 			if (mapSymptoms.containsKey(symptom)) {
 				int currentValue = mapSymptoms.get(symptom);
@@ -40,6 +52,12 @@ public class SymptomsCounter {
 	}
 
 	public void result() {
+
+		/**
+		 * print orderedSymptoms into result.out everytime the code is used result.out
+		 * is updated with a current time stamp
+		 */
+
 		Set<Map.Entry<String, Integer>> set = orderedSymptoms.entrySet();
 		Iterator<Map.Entry<String, Integer>> it = set.iterator();
 
@@ -50,7 +68,7 @@ public class SymptomsCounter {
 
 			while (it.hasNext()) {
 				Map.Entry<String, Integer> entry = (Map.Entry<String, Integer>) it.next();
-				// construire le contenu du fichier
+				// to create the file
 				String resultmap = entry.getKey() + ": " + entry.getValue();
 				result = result + resultmap + "\n";
 
