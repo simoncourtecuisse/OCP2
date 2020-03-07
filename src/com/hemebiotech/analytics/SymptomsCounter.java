@@ -20,23 +20,23 @@ public class SymptomsCounter {
 
 	private Map<String, Integer> orderedSymptoms;
 
-	public SymptomsCounter() {
+	/**
+	 * read data from symptoms.txt using ReadSymptomDataFromFile class creates a
+	 * symptomsList
+	 */
 
-		/**
-		 * read data from symptoms.txt using ReadSymptomDataFromFile class creates a
-		 * symptomsList
-		 */
+	public SymptomsCounter() {
 
 		readSDFF = new ReadSymptomDataFromFile("symptoms.txt");
 		symptomsList = readSDFF.getSymptoms();
 	}
 
-	public void symptomsHandler() {
+	/**
+	 * using a HashMap to count the occurrences in the symptomsList using a TreeMap
+	 * to sort them alphabetically return an orderedSymptoms
+	 */
 
-		/**
-		 * using a HashMap to count the occurrences in the symptomsList using a TreeMap
-		 * to sort them alphabetically return an orderedSymptoms
-		 */
+	public void symptomsHandler() {
 
 		for (String symptom : symptomsList) {
 			if (mapSymptoms.containsKey(symptom)) {
@@ -51,12 +51,12 @@ public class SymptomsCounter {
 		System.out.println(orderedSymptoms);
 	}
 
-	public void result() {
+	/**
+	 * print orderedSymptoms into result.out everytime the code is used result.out
+	 * is updated with a current time stamp
+	 */
 
-		/**
-		 * print orderedSymptoms into result.out everytime the code is used result.out
-		 * is updated with a current time stamp
-		 */
+	public void result() {
 
 		Set<Map.Entry<String, Integer>> set = orderedSymptoms.entrySet();
 		Iterator<Map.Entry<String, Integer>> it = set.iterator();
